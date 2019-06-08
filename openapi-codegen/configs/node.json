@@ -4,11 +4,8 @@
         "implFolder": "services",
         "extraDependancies": [
             { "package":"pem", "version":"^1.12.5" },
-            { "package":"aws-sdk", "version":"^2.255.1" },
             { "package":"timestamp-log", "version":"^1.0.0" },
-            { "package":"jsonwebtoken", "version":"^8.2.1" },
-            { "package":"ngeohash", "version":"^0.6.0" },
-            { "package":"geo-nearby", "version":"^2.0.1"}
+            { "package":"jsonwebtoken", "version":"^8.2.1" }
         ],
         "dockerPackages": "openssl"
     },

@@ -5,26 +5,9 @@ var fs = require('fs'),
     http = require('http');
 
 var app = require('connect')();
-var connectStatic = require('connect-static');
 var swaggerTools = require('swagger-tools');
 var jsyaml = require('js-yaml');
 var serverPort = 3000;
-
-connectStatic({
-  dir: "coverage",
-  aliases: [
-    ['/', '/index.html'],
-  ],
-  ignoreFile: function (fullPath) {
-    var basename = path.basename(fullPath);
-    return /^\./.test(basename) || /~$/.test(basename);
-  },
-  followSymlinks: true,
-  cacheControlHeader: "max-age=0, must-revalidate",
-}, function (err, middleware) {
-  if (err) throw err;
-  app.use('/', middleware);
-});
 
 // swaggerRouter configuration
 var options = {
