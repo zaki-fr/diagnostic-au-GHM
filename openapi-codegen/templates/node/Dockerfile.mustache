@@ -13,7 +13,7 @@ RUN apk --update add curl ca-certificates {{dockerPackages}} &&\
 # Run as the node user ID.
 USER nodeapp
 
-WORKDIR "/home/nodeapp/"
+WORKDIR /home/nodeapp/
 
 EXPOSE 3000
 
