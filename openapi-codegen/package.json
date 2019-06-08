@@ -1,0 +1,41 @@
+{
+  "name": "openapi-codegen",
+  "description": "Openapi code generator from OpenAPI spec",
+  "version": "1.0.0",
+  "author": "Cuong, Duong Dinh <dinhcuong@zaki-fr.com>",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zaki-fr/openapi-codegen.git"
+  },
+  "bugs": "http://github.com/zaki-fr/openapi-codegen/issues",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.13",
+    "case": "^1.6.1",
+    "co": "^4.6.0",
+    "connect": "^3.7.0",
+    "hogan.js": "^3.0.2",
+    "js-yaml": "^3.13.1",
+    "mkdirp": "^0.5.1",
+    "node-fetch": "^2.6.0",
+    "openapi-sampler": "^1.0.0-beta.14",
+    "reftools": "0.0.20",
+    "rimraf": "^2.6.3",
+    "safe-json-stringify": "github:MikeRalphson/safe-json-stringify",
+    "swagger-tools": "^0.10.4",
+    "swagger2openapi": "^2.11.9",
+    "uuid": "^3.3.2",
+    "yargs": "^11.1.0"
+  },
+  "devDependencies": {
+    "openapi-codegen": "^1.5.5"
+  },
+  "scripts": {
+    "node": "node cg.js node -f -o",
+    "lumen": "node cg.js lumen -f -o",
+    "generate": "npm run node ../ apis/diagnostic-au-GHM.yaml"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "{{projectBundle}}",
+  "version": "{{appVersion}}",
+  "description": "{{{appDescription}}}",
+  "main": "index.js",
+  "scripts": {
+    "build": "nyc --reporter=html mocha --reporter mocha-simple-html-reporter --reporter-options output=index.html --require tests/setup.env.js --timeout 60000 \"./tests/**/*.spec.js*\"",
+    "start": "node index.js",
+    "test": "nyc --reporter=text mocha --require tests/setup.env.js --timeout 60000 \"./tests/**/*.spec.js*\"",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "connect-static": "^1.5.2",
+    "js-yaml": "^3.3.0",
+  {{#extraDependancies}}
+    "{{package}}":"{{version}}"{{#hasMore}},
+    {{/hasMore}}
+  {{/extraDependancies}}
+    "swagger-tools": "0.10.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha-simple-html-reporter": "^1.1.0",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
+    "rewire": "^4.0.1",
+    "coveralls": "^3.0.1"
+  }
+}

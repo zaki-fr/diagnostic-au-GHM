@@ -1,0 +1,37 @@
+{
+    "defaults": {
+        "serverPort": "3000",
+        "implFolder": "services",
+        "extraDependancies": [
+            { "package":"pem", "version":"^1.12.5" },
+            { "package":"aws-sdk", "version":"^2.255.1" },
+            { "package":"timestamp-log", "version":"^1.0.0" },
+            { "package":"jsonwebtoken", "version":"^8.2.1" },
+            { "package":"ngeohash", "version":"^0.6.0" },
+            { "package":"geo-nearby", "version":"^2.0.1"}
+        ],
+        "dockerPackages": "openssl"
+    },
+    "directories": [
+        "tests/services", "specs", "controllers", "utils", "services"
+    ],
+    "transformations": [
+        { "input": "index.mustache", "output": "index.js" },
+        { "input": "index-gcf.mustache", "output": "index-gcf.js" },
+        { "input": "package.mustache", "output": "package.json" },
+        { "input": "README.mustache", "output": "README.md" },
+        { "input": "swagger.mustache", "output": "specs/swagger.yaml" },
+        { "input": "openapi.mustache", "output": "specs/openapi.yaml" },
+        { "input": "Dockerfile.mustache", "output": "Dockerfile" },
+        { "input": "docker-entrypoint.mustache", "output": "docker-entrypoint.sh" },
+        { "input": "docker-compose.mustache", "output": "docker-compose.yml" },
+        { "input": "writer.mustache", "output": "utils/writer.js" },
+        { "input": ".gitignore.mustache", "output": ".gitignore" },
+        { "input": "setup.env.mustache", "output": "tests/setup.env.example" }
+    ],
+    "perApi": [
+        { "input": "controller.mustache", "output": "controllers/{{name}}.js" },
+        { "input": "service.mustache", "output": "services/{{name}}Service.js" },
+        { "input": "sample.spec.mustache", "output": "tests/services/{{name}}Service.spec.js" }
+    ]
+}
