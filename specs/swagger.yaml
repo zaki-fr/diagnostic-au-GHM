@@ -94,7 +94,7 @@ definitions:
         properties:
           age:
             type: integer
-          session:
+          sessions:
             type: integer
           gender:
             type: string

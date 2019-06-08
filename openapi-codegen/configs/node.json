@@ -3,7 +3,7 @@
         "serverPort": "3000",
         "implFolder": "services",
         "extraDependancies": [
-            { "package":"pem", "version":"^1.12.5" },
+            { "package":"@zaki-fr/decision-tree-json", "version":"^0.1.2" },
             { "package":"timestamp-log", "version":"^1.0.0" },
             { "package":"jsonwebtoken", "version":"^8.2.1" }
         ],
