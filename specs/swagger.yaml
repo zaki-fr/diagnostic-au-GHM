@@ -141,25 +141,39 @@ definitions:
           type: object
         example:
           - code: A-112
-            descripton: ''
+            name: 'Act Code 112'
+            desc: 'Medical act 112 of D-143'
+            refs: ''
           - code: A-113
-            descripton: ''
+            name: 'Act Code 113'
+            desc: 'Medical act 113 of D-143'
+            refs: ''
           - code: A-114
-            descripton: ''
+            name: 'Act Code 114'
+            desc: 'Medical act 114 of D-143'
+            refs: ''
   GHMResponse:
     properties:
-      code:
-        type: string
-        description: The GHM code
-        example: 28Z16
       name:
         type: string
         description: The GHM description
         example: Seasen d aphérèse sanguine (D-054)
-      severity:
+      serv:
         type: integer
         description: The severity of GHM
         example: 1
+      flag:
+        type: boolean
+        description: The flag set of GHM
+        example: false
+      desc:
+        type: string
+        description: The description of GHM
+        example: The GHM code of CMD-28
+      refs:
+        type: string
+        description: The references
+        example: ''
   ErrorsResponse:
     required:
       - code

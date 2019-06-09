@@ -1,5 +1,5 @@
 'use strict';
-
+const loaderService = require("./CSVLoaderService")
 
 /**
  * Get GHM details by GHM code.
@@ -9,10 +9,21 @@
  **/
 exports.getGHMByCode = function(code) {
   return new Promise(function(resolve, reject) {
-    reject({
-      "code": "ErrorOperationNotImplemetedException",
-      "message": "Not Implemented Exception"
-    });
+    try {
+      if (loaderService.isDataLoaded()) {
+        resolve(loaderService.getGHM(code))
+      } else {
+        throw {
+          code: "ErrorOperationNotReadyException",
+          message: "Data is loading into memory..."
+        }
+      }
+    } catch (ex) {
+      reject({
+        "code": "ErrorGHMNotFoundException",
+        "message": ex.message
+      });
+    }
   });
 }
 
