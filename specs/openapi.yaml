@@ -20,11 +20,13 @@ paths:
         - name: start
           in: query
           description: The start index of acts.
+          required: true
           schema:
             type: integer
         - name: size
           in: query
           description: The number of item of acts.
+          required: true
           schema:
             type: integer
         - name: filters
