@@ -155,37 +155,18 @@ definitions:
           - code: A-112
             name: Act Code 112
             desc: Medical act 112 of D-143
-            refs: ''
           - code: A-113
             name: Act Code 113
             desc: Medical act 113 of D-143
-            refs: ''
           - code: A-114
             name: Act Code 114
             desc: Medical act 114 of D-143
-            refs: ''
   GHMResponse:
     properties:
       name:
         type: string
         description: The GHM description
         example: Seasen d aphérèse sanguine (D-054)
-      serv:
-        type: string
-        description: 'The severity (1,2..A,B,C) of GHM 28Z16'
-        example: 1
-      flag:
-        type: string
-        description: 'The flag set (J,T) of GHM 28Z16'
-        example: J
-      desc:
-        type: string
-        description: The description of GHM 28Z16
-        example: The GHM code of CMD-28
-      refs:
-        type: string
-        description: The references
-        example: ''
   ErrorsResponse:
     required:
       - code

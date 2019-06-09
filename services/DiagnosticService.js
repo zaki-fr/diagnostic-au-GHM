@@ -7,6 +7,9 @@ const diagnosticTree = require("./DiagnosticTree")
  * Get ACTs details by Diagnostic code.
  *
  * code string The Diagnostic code of acts.
+ * start integer The start index of acts. (optional)
+ * size integer The number of item of acts. (optional)
+ * filters string The filter keywords of acts. (optional)
  * returns ErrorsResponse
  **/
 exports.getACTsByDiagnosticCode = function (code, start, size, filters) {
