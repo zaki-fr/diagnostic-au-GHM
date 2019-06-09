@@ -48,8 +48,8 @@ exports.getGHM = function (code) {
   const ghm = GHMCache.get(code)
   if (ghm) {
     return {
-      sevr: parseInt(ghm[0] || 0),
-      flag: ghm[1] == 0 ? false : true,
+      sevr: ghm[0],
+      flag: ghm[1],
       name: ghm[2],
       desc: ghm[3],
       refs: ghm[4]

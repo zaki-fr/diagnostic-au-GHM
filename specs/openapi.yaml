@@ -164,13 +164,13 @@ components:
           description: The GHM description
           example: Seasen d aphérèse sanguine (D-054)
         serv:
-          type: integer
-          description: The severity of GHM 28Z16
+          type: string
+          description: The severity (1,2..A,B,C) of GHM 28Z16
           example: 1
         flag:
-          type: boolean
-          description: The flag set of GHM 28Z16
-          example: false
+          type: string
+          description: The flag set (J,T) of GHM 28Z16
+          example: J
         desc:
           type: string
           description: The description of GHM 28Z16
