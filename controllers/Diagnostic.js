@@ -5,7 +5,10 @@ var Diagnostic = require('../services/DiagnosticService');
 
 module.exports.getACTsByDiagnosticCode = function getACTsByDiagnosticCode (req, res, next) {
   var code = req.swagger.params['code'].value;
-  Diagnostic.getACTsByDiagnosticCode(code)
+  var start = req.swagger.params['start'].value;
+  var size = req.swagger.params['size'].value;
+  var filters = req.swagger.params['filters'].value;
+  Diagnostic.getACTsByDiagnosticCode(code, start, size, filters)
     .then(function (response) {
       utils.writeJson(res, response);
     }, function (error) {

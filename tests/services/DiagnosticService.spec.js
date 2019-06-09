@@ -9,7 +9,7 @@ describe('Diagnostic:', function () {
     before('Prepare for Diagnostic test specs', function () {});
 
     it('Should be rejected with ErrorOperationNotImplemetedException when calling getACTsByDiagnosticCode', function () {
-        return DiagnosticService.getACTsByDiagnosticCode('code').should.eventually.rejected;
+        return DiagnosticService.getACTsByDiagnosticCode('code', 'start', 'size', 'filters').should.eventually.rejected;
     });
 
 

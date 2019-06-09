@@ -9,12 +9,12 @@ const diagnosticTree = require("./DiagnosticTree")
  * code string The Diagnostic code of acts.
  * returns ErrorsResponse
  **/
-exports.getACTsByDiagnosticCode = function (code) {
+exports.getACTsByDiagnosticCode = function (code, start, size, filters) {
   return new Promise(function (resolve, reject) {
     try {
       if (loaderService.isDataLoaded()) {
         resolve({
-          medicalActs: loaderService.getActs(code)
+          medicalActs: loaderService.getActs(code, start, size, filters)
         })
       } else {
         throw {

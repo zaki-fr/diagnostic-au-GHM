@@ -18,6 +18,7 @@ MAReadStream.pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, t
     }
   }
 }).on("end", function (_) {
+  console.log("Medical Acts:", MedicalActCache.length)
   gCsvDataLoaded = true
 });
 
@@ -31,28 +32,26 @@ GHMReadStream.pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, 
     }
   }
 }).on("end", function (_) {
+  console.log("GHM codes:", GHMCache.length)
   gCsvDataLoaded = true
 });
 
-exports.getActs = function (code) {
-  MedicalActCache.get(code).map((act) => {
+exports.getActs = function (code, start, size, filters) {
+  const actCodes = MedicalActCache.get(code).slice(start,start + size)
+  const result = actCodes.map((act) => {
     return {
       code: act[0],
       name: act[1],
-      desc: act[2],
-      refs: act[3]
+      desc: act[2]
     }
   })
+  return result
 }
 exports.getGHM = function (code) {
-  const ghm = GHMCache.get(code)
-  if (ghm) {
+  const ghmCode = GHMCache.get(code)
+  if (ghmCode) {
     return {
-      sevr: ghm[0],
-      flag: ghm[1],
-      name: ghm[2],
-      desc: ghm[3],
-      refs: ghm[4]
+      name: ghmCode[0]
     }
   } else {
     throw { code: "ErrorCacheNotFoundException", message: "No given GHM code inside database" }
